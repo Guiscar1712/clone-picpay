@@ -1,8 +1,40 @@
 import React from 'react';
 
-import { Wrapper, Header, HeaderContainer, Title, BalanceContainer, Value, Bold, VisibleButtom, Info, Actions, Action, ActionLabel } from './Styles';
+import { Switch } from 'react-native'
 
-import { Feather, MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
+import {
+  Wrapper,
+  Header,
+  HeaderContainer,
+  Title,
+  BalanceContainer,
+  Value,
+  Bold,
+  VisibleButtom,
+  Info,
+  Actions,
+  Action,
+  ActionLabel,
+  UseBalance,
+  UseBalanceLabel,
+  PaymentMethods,
+  PaymentMethodsTitle,
+  Card,
+  CardBody,
+  CardInfo,
+  CardDetails,
+  CardTitle,
+  Img,
+  AddButtom,
+  AddLabel,
+  UseTicketButtom,
+  UseTicketLabel,
+  UseTicketContainer
+} from './Styles';
+
+import imgCredit from '../../images/credit-card.png'
+
+import { Feather, MaterialCommunityIcons, FontAwesome, AntDesign } from '@expo/vector-icons';
 
 export default function Wallet() {
   return (
@@ -33,6 +65,43 @@ export default function Wallet() {
           </Actions>
         </HeaderContainer>
       </Header>
+
+      <UseBalance>
+        <UseBalanceLabel>Usar saldo ao pagar</UseBalanceLabel>
+        <Switch />
+      </UseBalance>
+
+      <PaymentMethods>
+        <PaymentMethodsTitle>
+          Forma de pagamento
+        </PaymentMethodsTitle>
+      </PaymentMethods>
+
+      <Card>
+        <CardBody>
+          <CardDetails>
+            <CardTitle>
+              Cadastre seu cartão de crédito
+            </CardTitle>
+            <CardInfo>
+              Cadastre seu cartão de crédito para poder fazer pagamentos mesmo quando não tiver saldo no seu PicPay
+            </CardInfo>
+          </CardDetails>
+          <Img source={imgCredit} resizeMode="contain" ></Img>
+        </CardBody>
+        <AddButtom>
+          <AntDesign name="pluscircleo" size={30} color="#0DB060" />
+          <AddLabel>
+            Adicionar cartão de crédito
+          </AddLabel>
+        </AddButtom>
+      </Card>
+      <UseTicketContainer>
+        <UseTicketButtom>
+          <MaterialCommunityIcons name="ticket-outline" size={20} color="#0DB060" />
+          <UseTicketLabel>Usar código promocional</UseTicketLabel>
+        </UseTicketButtom>
+      </UseTicketContainer>
     </Wrapper>
   );
 }
